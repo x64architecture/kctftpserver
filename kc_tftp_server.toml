@@ -1,0 +1,28 @@
+# All fields are CASE-SENSITIVE
+
+# Verbosity of output log messages (can be overriden by the 'verbose' command line option)
+verbose = true
+
+[servers.all_interfaces]
+# Interface to listen on in the format host:port (host can be empty to listen on all available interfaces)
+host = ":69"
+# Directory root to serve TFTP files from
+get_dir = "./"
+# Directory root to put recieved TFTP files
+put_dir = "./"
+# Support RRQ/get requests
+support_get = true
+# Support WRQ/put requests
+support_put = true
+
+# [servers.ipv6_example]
+# IPv6 Interface to listen on in the format [host]:port (host can be empty to listen on all available interfaces)
+#host = "[::1]:69"
+# Directory root to serve TFTP files from
+#get_dir = "./"
+# Directory root to put recieved TFTP files
+#put_dir = "./"
+# Support RRQ/get requests
+#support_get = true
+# Support WRQ/put requests
+#support_put = true
