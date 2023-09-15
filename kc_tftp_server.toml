@@ -10,6 +10,10 @@ host = ":69"
 get_dir = "./"
 # Directory root to put recieved TFTP files
 put_dir = "./"
+# Maximum block size to support
+max_block_size = 1468
+# Maximum time to wait for client before timing out
+timeout = 5
 # Support RRQ/get requests
 support_get = true
 # Support WRQ/put requests
@@ -20,8 +24,12 @@ support_put = true
 #host = "[::1]:69"
 # Directory root to serve TFTP files from
 #get_dir = "./"
-# Directory root to put recieved TFTP files
+# Directory root to put received TFTP files
 #put_dir = "./"
+# Maximum block size to support
+#max_block_size = 1468
+# Maximum time to wait for client before timing out
+#timeout = 5
 # Support RRQ/get requests
 #support_get = true
 # Support WRQ/put requests

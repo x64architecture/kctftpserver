@@ -46,14 +46,16 @@ type (
 )
 
 var (
-	buildDTStamp = "<BUILD DTSTAMP UNDEFINED>"
-	gitHash      = "<GIT HASH UNDEFINED>"
 	gitShortHash = "<GIT SHORT HASH UNDEFINED>"
 	version      = "<VERSION UNDEFINED>"
+	configFile   string
 )
 
 func getConfigFilePath() string {
-	var configFile string
+	if len(configFile) != 0 {
+		return configFile
+	}
+
 	if exe, err := os.Executable(); err == nil {
 		configFile = filepath.Join(filepath.Dir(exe), "/kc_tftp_server.toml")
 		if _, err := os.Stat(configFile); err != nil {
@@ -137,12 +139,10 @@ func main() {
 
 	flag.BoolVar(&verbose, "verbose", false, "Output verbose information.")
 	flag.BoolVar(&showVersion, "version", false, "Output version information.")
+	flag.StringVar(&configFile, "configFile", "", "Configuration file location.")
 	flag.Parse()
 
 	if showVersion {
-		log.Info().Msg("")
-		log.Info().Msgf("Git Hash: %s", gitHash)
-		log.Info().Msgf("Build UTC Timestamp: %s", buildDTStamp)
 		return
 	}
 
